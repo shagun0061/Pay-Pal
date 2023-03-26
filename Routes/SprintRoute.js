@@ -15,7 +15,7 @@ SprintRoutes.post("/sprintadd", userAuthMiddleware, async (req, res) => {
 
 
 
-SprintRoutes.delete("/sprintdel", userAuthMiddleware, async (req, res) => {
+SprintRoutes.delete("/sprintdel", async (req, res) => {
   let id = req.body.id
   let chekid = req.body.linkid
 
