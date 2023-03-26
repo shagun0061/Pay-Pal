@@ -3,8 +3,9 @@ const jwt = require("jsonwebtoken");
 
 const userAuthMiddleware = async (req, res, next) => {
   const token = req.headers.auth;
+  
   console.log("token",token,req.body);
-  if(token){
+   
 
   jwt.verify(token, "AccessToken", (err, auth) => {
     console.log(1);
@@ -21,9 +22,7 @@ const userAuthMiddleware = async (req, res, next) => {
     console.log(1);
 
   })
-}else{
-  res.send("Login first")
-}
+
 
 };
 module.exports = { userAuthMiddleware };
