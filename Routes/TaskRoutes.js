@@ -15,4 +15,19 @@ TaskRoutes.post("/taskadd", userAuthMiddleware, async (req, res) => {
   res.send("Task");
 });
 
+TaskRoutes.delete("/taskdel", userAuthMiddleware, async (req, res) => {
+  let id = req.body.id;
+  let chekid =  req.body.linkid;
+
+  const Task = await Task_modal.find({_id:id});
+   
+  if(chekid==Task[0].linkid){
+    await Task_modal.findByIdAndRemove(req.body.id);
+    res.send("Task delet done");
+  }else{
+    res.send("you don not delet this Task");
+  }
+  
+});
+
 module.exports = { TaskRoutes };

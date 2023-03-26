@@ -19,7 +19,8 @@ const task_Schema = new mongoose.Schema({
   user: {
     type: String,
     required: true,
-  }
+  },
+  linkid:String
 });
 
 const Task_modal = mongoose.model("Task", task_Schema);
