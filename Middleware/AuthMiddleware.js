@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 
 const userAuthMiddleware = async (req, res, next) => {
   const token = req.headers.auth;
+  console.log("token",token,req.body);
   if(token){
 
   jwt.verify(token, "AccessToken", (err, auth) => {
